@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    int aux1 = 0;
+    int aux2 = 0;
+    List<double> cantCategorias = ViewBag.cantCategorias;
+    List<double> listPrecioxCantidad = ViewBag.preciosCategorias;
+}
+
+<h2>Estadisticas</h2>
+
+
+<h5>Porcentaje de Productos por Categoria</h5>
+
+<table class="table">
+    <tr>
+        <th>
+            Categoría
+        </th>
+        <th>
+            Porcentaje del total
+        </th>
+    </tr>
+    @foreach (var i in ViewBag.idCategoria)
+    {
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                @cantCategorias[aux1]%
+            </td>
+        </tr>
+        aux1++;
+    }
+</table>
+
+<h5>Precio Promedio por Categoria</h5>
+
+<table class="table">
+    <tr>
+        <th>
+            Categoría
+        </th>
+        <th>
+            Precio Promedio
+        </th>
+    </tr>
+    @foreach (var i in ViewBag.idCategoria)
+    {
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                $@listPrecioxCantidad[aux2]
+            </td>
+        </tr>
+        aux2++;
+    }
+</table>
+
+<div class="rectangle bg-black skew-left"></div>
+<div class="section bg-black" id="footer">
+    <div class="center-align">
+        <div class="section-columns">
+            <div>
+                <h3>Puede seguirnos en nuestras redes sociales</h3>
+                <p>Donde publicamos siempre nuestros productos fabricados o por si una empresa desea trabajar con nosotros.</p>
+
+                <div class="btn-section">
+                    <a href="http://www.facebook.com" class="btn btn-white">Facebook</a>
+                    <a href="http://www.twitter.com" class="btn btn-white">Twitter</a>
+                    <a href="http://www.instagram.com" class="btn btn-white">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model List<Pruebaa2.Models.ViewModels.ViewCategoria>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Categorias</h2>
+
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Categoria/Create" class="btn btn-primary">Nueva Categoria</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+            </tr>
+            @foreach (var oElemen in Model)
+            {
+                <tr>
+                    <td>@oElemen.idCategoria</td>
+                    <td>@oElemen.nombre</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Categoria/Edit/@oElemen.idCategoria">Editar</a>
+                        <a class="btn btn-danger" href="~/Categoria/Eliminar/@oElemen.idCategoria">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="rectangle bg-black skew-left"></div>
+<div class="section bg-black" id="footer">
+    <div class="center-align">
+        <div class="section-columns">
+            <div>
+                <h3>Puede seguirnos en nuestras redes sociales</h3>
+                <p>Donde publicamos siempre nuestros productos fabricados o por si una empresa desea trabajar con nosotros.</p>
+
+                <div class="btn-section">
+                    <a href="http://www.facebook.com" class="btn btn-white">Facebook</a>
+                    <a href="http://www.twitter.com" class="btn btn-white">Twitter</a>
+                    <a href="http://www.instagram.com" class="btn btn-white">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

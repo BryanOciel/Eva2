@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fabricaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="idCategoria" />
+    </Key>
+    <Property Name="idCategoria" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_Producto" FromRole="Categoria" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="idProducto" />
+    </Key>
+    <Property Name="idProducto" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="precio" Type="Int32" />
+    <Property Name="stock" Type="Int32" />
+    <Property Name="idCategoria" Type="Int32" />
+    <Property Name="estado" Type="Boolean" />
+    <NavigationProperty Name="Categoria" Relationship="Self.FK_Producto" FromRole="Producto" ToRole="Categoria" />
+  </EntityType>
+  <Association Name="FK_Producto">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="idCategoria" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="fabricaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" />
+    <AssociationSet Name="FK_Producto" Association="Self.FK_Producto">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

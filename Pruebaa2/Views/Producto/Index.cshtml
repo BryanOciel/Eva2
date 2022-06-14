@@ -1,0 +1,63 @@
+﻿@model List<Pruebaa2.Models.ViewModels.ViewProducto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Productos</h2>
+
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Producto/Nuevo" class="btn btn-primary">Nuevo Producto</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Categoria</th>
+                <th>Estado</th>
+                <th></th>
+            </tr>
+            @foreach (var oElemento in Model)
+            {
+                <tr>
+                    <td>@oElemento.idProducto</td>
+                    <td>@oElemento.nombre</td>
+                    <td>@oElemento.descripcion</td>
+                    <td>@oElemento.precio</td>
+                    <td>@oElemento.stock</td>
+                    <td>@oElemento.idCategoria</td>
+                    <td>@oElemento.estado</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Producto/Editar/@oElemento.idProducto">Editar</a>
+                        <a class="btn btn-danger" href="~/Producto/Eliminar/@oElemento.idProducto">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="rectangle bg-black skew-left"></div>
+<div class="section bg-black" id="footer">
+    <div class="center-align">
+        <div class="section-columns">
+            <div>
+                <h3>Puede seguirnos en nuestras redes sociales</h3>
+                <p>Donde publicamos siempre nuestros productos fabricados o por si una empresa desea trabajar con nosotros.</p>
+
+                <div class="btn-section">
+                    <a href="http://www.facebook.com" class="btn btn-white">Facebook</a>
+                    <a href="http://www.twitter.com" class="btn btn-white">Twitter</a>
+                    <a href="http://www.instagram.com" class="btn btn-white">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

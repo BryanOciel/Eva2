@@ -1,0 +1,25 @@
+﻿@model Pruebaa2.Models.ViewModels.ViewCategoria
+@{
+    ViewBag.Title = "Agregar Categoria";
+}
+
+<h2>Agregar</h2>
+@using (Html.BeginForm("Agregar", "Categoria", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(d => d.idCategoria)
+            <div>
+                @Html.LabelFor(d => d.idCategoria)
+                @Html.TextBoxFor(d => d.idCategoria, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.idCategoria, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.nombre)
+                @Html.TextBoxFor(d => d.nombre, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.nombre, null, new { @class = "red" })
+            </div>
+        </div>
+    </div>
+
+}

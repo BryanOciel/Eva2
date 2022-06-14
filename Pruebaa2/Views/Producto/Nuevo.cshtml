@@ -1,0 +1,55 @@
+﻿@model Pruebaa2.Models.ViewModels.ViewProducto
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>Nuevo Producto</h2>
+
+@using (Html.BeginForm("Nuevo","Producto",FormMethod.Post))
+{
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            @Html.LabelFor(d => d.idProducto)
+            @Html.TextBoxFor(d => d.idProducto, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.idProducto, null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.nombre)
+            @Html.TextBoxFor(d => d.nombre, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.nombre,null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.descripcion)
+            @Html.TextBoxFor(d => d.descripcion, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.descripcion,null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.precio)
+            @Html.TextBoxFor(d => d.precio, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.precio,null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.stock)
+            @Html.TextBoxFor(d => d.stock, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.stock,null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.idCategoria)
+            @Html.TextBoxFor(d => d.idCategoria, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.idCategoria,null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.estado)
+            @Html.TextBoxFor(d => d.estado, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.estado,null, new { @class = "red" })
+        </div>
+        <br />
+
+        <div style="text-align:right;">
+            <input value="Guardar" class="btn btn-primary" type="submit" />
+        </div>
+    </div>
+</div>
+
+}
